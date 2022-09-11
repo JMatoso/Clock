@@ -103,8 +103,10 @@ body {
 }
 
 .time-content span {
+    position: absolute;
     padding: 5px;
     font-weight: 600;
+    right: 31%;
 }
 
 .gradient-slide {

@@ -27,7 +27,7 @@ function clock() {
 
     seconds.innerText = hour[2];
     time.innerText = `${hour[0]}:${hour[1]}`;
-    full_date.innerText = `${month[0]} (${month[1]}) ${day}, ${year}`;
+    full_date.innerText = `${month[0]} ${day}, ${year}`;
 }
 
 const wrapper = document.querySelectorAll(".wrapper");

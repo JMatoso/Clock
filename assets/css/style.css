@@ -168,5 +168,9 @@ body {
     .clock-content h1 {
         font-size: 32pt !important;
     }
+
+    .clock-content h3 {
+        font-size: 11pt !important;
+    }
 }
 

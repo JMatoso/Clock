@@ -14,7 +14,7 @@ function clock() {
 
     let hour = date.toLocaleTimeString().split(":");
 
-    dayOfWeek.innerText = date.toLocaleString('en-US', { weekday: 'long' });
+    dayOfWeek.innerText = date.toLocaleString('en-US', { weekday: 'long' }).toUpperCase();
 
     let day = date.toLocaleString('en-US', { day: '2-digit' });    
 
@@ -27,7 +27,7 @@ function clock() {
 
     seconds.innerText = hour[2];
     time.innerText = `${hour[0]}:${hour[1]}`;
-    full_date.innerText = `${day}, ${month[0]} (${month[1]}) of ${year}`;
+    full_date.innerText = `${month[0]} (${month[1]}) ${day}, ${year}`;
 }
 
 const wrapper = document.querySelectorAll(".wrapper");

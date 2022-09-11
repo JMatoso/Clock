@@ -86,7 +86,7 @@ body {
 }
 
 .clock-content {
-    line-height: .2;
+    line-height: .1;
     text-align: center;
 }
 
@@ -95,7 +95,7 @@ body {
 }
 
 .clock-content h3 {
-    font-size: 18pt;
+    font-size: 15pt;
     font-weight: 600;
 }
 

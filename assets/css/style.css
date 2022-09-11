@@ -165,5 +165,9 @@ body {
         width: 17rem;
         height: 17rem;
     }
+
+    .clock-content h1 {
+        font-size: 32pt;
+    }
 }
 

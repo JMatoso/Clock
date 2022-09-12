@@ -9,7 +9,7 @@ var full_date = document.querySelector("#full-date");
 
 window.onload = () => {
   setInterval(clock, 1000);
-  setInterval(changeThemeColor, 3500);
+  setInterval(changeThemeColor, 2500);
 }
 
 function clock() {

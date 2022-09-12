@@ -82,13 +82,17 @@ var appleThemeColor = document.querySelector('meta[name="apple-mobile-web-app-st
 function changeThemeColor() {
   if(control) {
     themeColor.setAttribute("content", colors[1]);
-    themeColor.setAttribute("content", colors[1]);
+    msThemeColor.setAttribute("content", colors[1]);
     appleThemeColor.setAttribute("content", colors[1]);
 
+    control = false;
+    
     return;
   }
 
   themeColor.setAttribute("content", colors[0]);
-  themeColor.setAttribute("content", colors[0]);
+  msThemeColor.setAttribute("content", colors[0]);
   appleThemeColor.setAttribute("content", colors[0]);
+
+  control = true;
 }

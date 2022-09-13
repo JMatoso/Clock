@@ -82,9 +82,8 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    .time-content span {
-        right: 22%;
-        top: 22%;
+    .time {
+        margin-top: 60%;
     }
 }
 

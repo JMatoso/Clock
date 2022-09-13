@@ -34,29 +34,29 @@ function clock() {
 
     let year = date.getFullYear();
 
-    setPeriodInformation(hour[0]);
+    setPeriodInformation(hour[0], hour[2].split(' ')[1].toString().trim().toLowerCase());
 
     document.querySelector("#seconds").innerText = hour[2];
     document.querySelector("#date").innerText = `${day}/${month[1]}/${year}`;
     document.querySelector("#time-clock").innerText = `${hour[0]}:${hour[1]}`;
 }
 
-function setPeriodInformation(hour) {
+function setPeriodInformation(hour, period) {
     let time_info = document.querySelector("#time-info");
 
-    if(hour >= 0 && hour < 12) {
+    if((hour >= 0 && hour < 12) && period == "am") {
         time_info.innerText = "Good morning,";
         container.style.backgroundImage  = `url(${banners.morning})`;
         return;
     } 
     
-    if(hour >= 12 && hour < 18) {
+    if((hour >= 1 && hour < 6) && period == "pm") {
         time_info.innerText = "Good afternoon,";
         container.style.backgroundImage  = `url(${banners.afternoon})`;
         return;
     } 
     
-    if(hour >= 6) {
+    if(hour >= 6 && period == "pm") {
         time_info.innerText = "Good evening,";
         container.style.backgroundImage  = `url(${banners.night})`;
         return;
@@ -84,7 +84,7 @@ async function getUserAddress(position) {
         });
     })
     .catch((error) => {
-        console.log(error);
+        console.error(error);
         return Object;
     });
 }
@@ -97,20 +97,7 @@ async function getQuote() {
         });
     })
     .catch((error) => {
-        console.log(error);
-        return Object;
-    });
-}
-
-async function sendRequest(url) {
-    await fetch(url).then((response) => {
-        response.json().then((data) => {
-            console.log(data)
-            return data;
-        });
-    })
-    .catch((error) => {
-        console.log(error);
+        console.error(error);
         return Object;
     });
 }

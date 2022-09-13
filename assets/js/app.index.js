@@ -6,6 +6,7 @@ const banners = {
     night: "https://images.pexels.com/photos/379419/pexels-photo-379419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     morning: "https://images.pexels.com/photos/1083342/pexels-photo-1083342.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     afternoon: "https://images.pexels.com/photos/61135/pexels-photo-61135.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    sunset: "https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 }
 
 var container = document.querySelector(".container");
@@ -45,17 +46,24 @@ function setPeriodInformation(hour) {
 
     if(hour >= 0 && hour < 12) {
         time_info.innerText = "Good morning,";
-        container.style.backgroundImage  = `url(${banners.morning})`
-    } else if(hour >= 12 && hour < 6) {
+        container.style.backgroundImage  = `url(${banners.morning})`;
+        return;
+    } 
+    
+    if(hour >= 12 && hour < 18) {
         time_info.innerText = "Good afternoon,";
-        container.style.backgroundImage  = `url(${banners.afternoon})`
-    } else if(hour >= 6) {
+        container.style.backgroundImage  = `url(${banners.afternoon})`;
+        return;
+    } 
+    
+    if(hour >= 6) {
         time_info.innerText = "Good evening,";
-        container.style.backgroundImage  = `url(${banners.night})`
-    } else {
-        time_info.innerText = "Hello,";
-        container.style.backgroundImage  = `url(${banners.afternoon})`
-    }
+        container.style.backgroundImage  = `url(${banners.night})`;
+        return;
+    } 
+    
+    time_info.innerText = "Hey there!";
+    container.style.backgroundImage  = `url(${banners.sunset})`;
 }
 
 function getLocation() {

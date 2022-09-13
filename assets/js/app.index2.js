@@ -8,6 +8,7 @@ var seconds = document.querySelector("#seconds");
 var full_date = document.querySelector("#full-date");
 
 window.onload = () => {
+  clock();
   setInterval(clock, 1000);
   setInterval(changeThemeColor, 1500);
 }

@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta http-equiv="Cache-control" content="public" max-age="86400">
+    <!--meta http-equiv="Cache-control" content="public" max-age="86400"-->
 
     <meta name="description" content="It's a clock. Enjoy!">  
 	<meta name="author" content="José Matoso">
-	<meta name="keywords" content="Clock, Hour, Time, Minutes, Days, Year, Month">
+	<meta name="keywords" content="Clock, Hour, Time, Minutes, Days, Year, Month, Location">
 
     <meta name="theme-color" content="#ffffff"/>
     <meta name="msapplication-navbutton-color" content="#ffffff"/>
@@ -19,31 +19,38 @@
 
     <title>Clock</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.index.css">
 
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
-<body class="gradient-slide">
+<body>
     <main>
         <div class="container">
-            <div class="wrapper">
-                <div class="clock">
-                    <div class="circle">
-                        <div class="clock-separator">
-                            <div class="clock-content">
-                                <div class="time-content">
-                                    <h1 id="time">11:17</h1>
-                                    <span id="seconds">23</span>
-                                </div>
-                                <h3 id="day">SUNDAY</h3>
-                                <h4 id="full-date">04/03/2001</h4>
-                            </div>
+            <div class="overlay">
+                <div class="centered">
+                    <div class="quotes">
+                        <p class="quote-sentence">
+                            <span id="quote-place"></span>
+                        </p> 
+    
+                        <span class="quote-author"></span>
+                    </div>
+                    <div class="time">
+                        <small>
+                            <span id="time-info"></span>
+                            It's Currently
+                        </small>
+                        <div class="time-content">
+                            <h1 id="time-clock">11:17</h1>
+                            <span id="seconds">23</span>
                         </div>
+                        <h4 id="city"></h4>
+                        <small id="date"></small>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 </body>
-<script src="assets/js/app.js"></script>
+<script src="assets/js/app.index.js"></script>
 </html>

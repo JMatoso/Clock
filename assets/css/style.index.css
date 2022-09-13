@@ -48,8 +48,6 @@ body {
 
 .quote-sentence { 
     font-weight: 400; 
-    word-break: break-all;
-    word-wrap: break-word;
 }
 
 .quote-sentence span {

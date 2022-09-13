@@ -82,10 +82,10 @@ async function getUserAddress(position) {
 
             let suburb = address.suburb != undefined ? ", " + address.suburb : ''; 
             let city = address.city != undefined ? address.city : 'City not found.'; 
-            let neighbourhood = address.neighbourhood != undefined ? address.neighbourhood : ''; 
+            let neighbourhood = address.neighbourhood != undefined ? " " + address.neighbourhood : ''; 
             let country_code = address.country_code != undefined ? ", " + address.country_code.toUpperCase() : '';
 
-            document.querySelector("#city").innerText = `In ${city}${suburb} ${neighbourhood}${country_code}`
+            document.querySelector("#city").innerText = `In ${city}${suburb}${neighbourhood}${country_code}`
         });
     })
     .catch((error) => {

@@ -60,7 +60,7 @@ body {
     color: white;
     text-align: center;
     text-transform: uppercase;
-    margin-top: 12%;
+    margin-top: 10%;
 }
 
 .time h1 {
@@ -81,7 +81,7 @@ body {
 
 @media screen and (max-width: 768px) {
     .time {
-        margin-top: 60%;
+        margin-top: 45%;
     }
 }
 

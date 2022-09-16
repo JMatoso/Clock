@@ -8,6 +8,13 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, h5, h6,
+span, small, p {
+    -webkit-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;
+}
+
 body {
     margin: 0;
     font-size: 14px;
@@ -68,10 +75,15 @@ body {
     margin: 14px;
 }
 
-.time-content {
+.time-content,
+.weather {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.weather {
+    padding: 10px;
 }
 
 .time-content span {

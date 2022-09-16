@@ -78,6 +78,9 @@ function getLocation() {
 async function getUserAddress(position) {
     await fetch(`https://geocode.maps.co/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}`).then((response) => {
         response.json().then((data) => {
+
+            //getWeather(position.coords.latitude, position.coords.longitude);
+
             let address = data.address;
 
             let suburb = address.suburb != undefined ? ", " + address.suburb : ''; 
@@ -85,7 +88,7 @@ async function getUserAddress(position) {
             let neighbourhood = address.neighbourhood != undefined ? " " + address.neighbourhood : ''; 
             let country_code = address.country_code != undefined ? ", " + address.country_code.toUpperCase() : '';
 
-            document.querySelector("#city").innerText = `In ${city}${suburb}${neighbourhood}${country_code}`
+            document.querySelector("#city").innerText = `In ${city}${suburb}${neighbourhood}${country_code}`;
         });
     })
     .catch((error) => {
@@ -99,6 +102,18 @@ async function getQuote() {
         response.json().then((data) => {
             document.querySelector("#quote-place").innerHTML = `&quot;</blockquote>${data.quote}</blockquote>&quot;`;
             document.querySelector(".quote-author").innerText = data.person;
+        });
+    })
+    .catch((error) => {
+        console.error(error);
+        return Object;
+    });
+}
+
+async function getWeather(latitude, longitude) {
+    await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&days=3&units=S&lang=en&key=c40b76dc501f47208f054da57124070a`).then((response) => {
+        response.json().then((data) => {
+            console.log(data)
         });
     })
     .catch((error) => {

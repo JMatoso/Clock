@@ -50,7 +50,7 @@ function setPeriodInformation(hour, period) {
         return;
     } 
     
-    if((hour >= 1 && hour < 6) && period == "pm") {
+    if((hour >= 12 && hour < 6) && period == "pm") {
         time_info.innerText = "Good afternoon,";
         container.style.backgroundImage  = `url(${banners.afternoon})`;
         return;

@@ -18,6 +18,7 @@ window.onload = () => {
 
     setInterval(clock, 1000);
     setInterval(getQuote, 60000);
+    setInterval(getLocation, 600000);
 }
 
 function clock() {
@@ -76,6 +77,7 @@ function getLocation() {
 }
 
 async function getUserAddress(position) {
+    // Source: https://geocode.maps.co
     await fetch(`https://geocode.maps.co/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}`).then((response) => {
         response.json().then((data) => {
             let address = data.address;
@@ -86,6 +88,7 @@ async function getUserAddress(position) {
             let country_code = address.country_code != undefined ? ", " + address.country_code.toUpperCase() : '';
 
             document.querySelector("#city").innerText = `In ${city}${suburb}${neighbourhood}${country_code}`;
+            getWeather(position.coords.latitude, position.coords.longitude);
         });
     })
     .catch((error) => {
@@ -98,7 +101,6 @@ async function getQuote() {
     // Source: https://github.com/lukePeavey/quotable
     await fetch('https://api.quotable.io/quotes/random').then((response) => {
         response.json().then((data) => {
-            console.log(data)
             document.querySelector("#quote-place").innerHTML = `&quot;</blockquote>${data[0].content}</blockquote>&quot;`;
             document.querySelector(".quote-author").innerText = data[0].author;
         });
@@ -110,13 +112,22 @@ async function getQuote() {
 }
 
 async function getWeather(latitude, longitude) {
-    await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&days=3&units=S&lang=en&key=c40b76dc501f47208f054da57124070a`).then((response) => {
+    // Source: https://open-meteo.com/
+    await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,is_day,precipitation,rain,showers,snowfall,wind_speed_10m&timezone=auto`).then((response) => {
         response.json().then((data) => {
-            console.log(data)
+            let weather = data.current;
+            let units = data.current_units;
+
+            document.querySelector(".w-temp").innerText = `${weather.temperature_2m}${units.temperature_2m}`;
+            document.querySelector(".w-rain").innerText = `${weather.rain}${units.rain}`;
+            document.querySelector(".w-snow").innerText = `${weather.snowfall}${units.snowfall}`;
+            document.querySelector(".w-wind").innerText = `${weather.wind_speed_10m}${units.wind_speed_10m}`;
         });
     })
     .catch((error) => {
         console.error(error);
         return Object;
     });
+
+    feather.replace();
 }

@@ -78,7 +78,7 @@ function getLocation() {
 
 async function getUserAddress(position) {
     // Source: https://geocode.maps.co
-    await fetch(`https://geocode.maps.co/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}`).then((response) => {
+    await fetch(`https://geocode.maps.co/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&api_key=65de4e7de3d6b976439859xgbf4c093`).then((response) => {
         response.json().then((data) => {
             let address = data.address;
 

@@ -78,9 +78,6 @@ function getLocation() {
 async function getUserAddress(position) {
     await fetch(`https://geocode.maps.co/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}`).then((response) => {
         response.json().then((data) => {
-
-            //getWeather(position.coords.latitude, position.coords.longitude);
-
             let address = data.address;
 
             let suburb = address.suburb != undefined ? ", " + address.suburb : ''; 
@@ -98,10 +95,12 @@ async function getUserAddress(position) {
 }
 
 async function getQuote() {
-    await fetch('https://motivational-quote-api.herokuapp.com/quotes/random').then((response) => {
+    // Source: https://github.com/lukePeavey/quotable
+    await fetch('https://api.quotable.io/quotes/random').then((response) => {
         response.json().then((data) => {
-            document.querySelector("#quote-place").innerHTML = `&quot;</blockquote>${data.quote}</blockquote>&quot;`;
-            document.querySelector(".quote-author").innerText = data.person;
+            console.log(data)
+            document.querySelector("#quote-place").innerHTML = `&quot;</blockquote>${data[0].content}</blockquote>&quot;`;
+            document.querySelector(".quote-author").innerText = data[0].author;
         });
     })
     .catch((error) => {

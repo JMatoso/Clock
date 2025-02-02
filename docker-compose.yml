@@ -3,18 +3,10 @@ version: '3.8'
 services:
   web:
     image: nginx:latest
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: any
+    container_name: static_site
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - "8080:80"
-    volumes:
-      - /site:/usr/share/nginx/html:ro
-      - /nginx.conf:/etc/nginx/conf.d/default.conf:ro
-    networks:
-      - clock_webnet
-
-networks:
-  clock_webnet:
-    external: true  # Indica que a rede já existe e foi criada antes
+    restart: unless-stopped

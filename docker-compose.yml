@@ -3,7 +3,6 @@ version: '3.8'
 services:
   web:
     image: nginx:latest
-    container_name: site_estatico
     restart: unless-stopped
     ports:
       - "8080:80"

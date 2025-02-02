@@ -13,8 +13,8 @@ services:
       - /site:/usr/share/nginx/html:ro
       - /nginx.conf:/etc/nginx/conf.d/default.conf:ro
     networks:
-      - webnet
+      - clock_webnet
 
 networks:
-  webnet:
-    driver: overlay
+  clock_webnet:
+    external: true  # Indica que a rede já existe e foi criada antes
